@@ -16,7 +16,6 @@
 body {
     background-color: var(--bg);
     color: #ffffff;
-    min-height: 3000px;
 }
 /*header*/
 .hero {
@@ -174,6 +173,21 @@ body {
 .menu .row .menu-card .menu-card-title {
     margin-top: 1.5rem auto 0.5rem;
     font-weight: 600;
+}
+
+/* footer */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+}
+
+footer .links a,
+footer .credit p {
+    color: #ffffff;
+    margin-top: 1rem;
+    padding: 0.6rem;
 }
 
 /*media*/

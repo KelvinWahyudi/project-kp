@@ -35,6 +35,11 @@
     @yield('scripts')
     <footer class="mt-5 mb-5">
       <hr/>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#menu">Produk</a>
+        <a href="#about">Tentang Kami</a>
+      </div>
       <div class="container">
           <div class="row">
               <div class="col text-center">

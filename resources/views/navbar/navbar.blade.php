@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav text-light">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home"><b>Home</b></a>
+                    <a class="nav-link" href="/"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/variant"><b>Produk</b></a>
@@ -28,7 +28,7 @@
                 @endcan
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=" /about"><b>Tentang Kami</b></a>
+                    <a class="nav-link" href="/about"><b>Tentang Kami</b></a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">

@@ -17,6 +17,12 @@ body {
     background-color: var(--bg);
     color: #ffffff;
 }
+.about {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    /* background-color: aliceblue; */
+    color: black;
+}
 /*header*/
 .hero {
     /* font-family: "Poppins", sans-serif; */

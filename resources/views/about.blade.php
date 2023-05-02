@@ -25,11 +25,8 @@
         <h2>Visi & Misi</h2>
         <p>Visi CV LAWANG AGUNG SUKSES adalah memberikan pengetahuan dan pelayanan jasa dalam keselamatan pekerja di kapal.</p>
         <p>Misi CV LAWANG AGUNG SUKSES adalah untuk mendukung keselamatan kerja di atas kapal dan lingkungan sekitarnya.</p>
-    
     </section>
 </main> 
-    <footer>
-      <p>&copy; 2022 CV LAWANG AGUNG SUKSES. Hak cipta dilindungi.</p>
-    </footer>
+@include('footer.footer')
   </body>
 </html>

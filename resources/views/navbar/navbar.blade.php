@@ -14,11 +14,11 @@
                     <a class="nav-link" href="/"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/variant"><b>Produk</b></a>
+                    <a class="nav-link" href="#"><b>Produk</b></a>
                 </li>
-                @can('view_coffee', \App\Models\produk::class)
+                @can('view_produk', \App\Models\produk::class)
                 <li class="nav-item">
-                    <a class="nav-link" href=" /coffee">produk</a>
+                    <a class="nav-link" href="/produk">produk</a>
                 </li>
                 @endcan
                 @can('view_customer', \App\Models\customer::class)

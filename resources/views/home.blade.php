@@ -21,7 +21,7 @@
        <p>Dapatkan perlindungan maksimal dengan produk
           keselamatan kapal terbaik 
           di pasaran saat ini.</p>
-          <a href="#" class="cta">Pesan Sekarang</a>
+          <a href="/produk" class="cta">Pesan Sekarang</a>
        </main>
      </section>
   {{-- about section --}}

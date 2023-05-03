@@ -44,7 +44,7 @@
                                 <a class="btn btn-link" href="{{ route('register') }}">
                                     {{ __('Not Registered?') }}
                                 </a>
-                                <button type="submit" class="btn btn-success ml-4">
+                                <button type="submit" class="btn btn-primary ml-4">
                                     Login
                                 </button>
                             </div>

@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><b>Produk</b></a>
+                    <a class="nav-link" href="/produk"><b>Produk</b></a>
                 </li>
                 @can('view_produk', \App\Models\produk::class)
                 <li class="nav-item">

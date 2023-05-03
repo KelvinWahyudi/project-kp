@@ -2,14 +2,14 @@
 
 {{-- @section('container') --}}
 <head>
-    <title>PopCoffee - Login</title>
+    <title>LAS - Login</title>
 </head>
 <main class="login-form">
     <div class="container py-5">
         <div class="d-flex justify-content-center">
             <div class="col-md-5">
                 <div class="card">
-                    <img src="img/CoffeeLogov1.png" class="mx-auto d-block" width="80%"/>
+                    <img src="img/logo.png" class="mx-auto d-block" width="80%"/>
                     <div class="card-body">
                         <form action="{{ route('login') }}" method="POST">
                             @csrf

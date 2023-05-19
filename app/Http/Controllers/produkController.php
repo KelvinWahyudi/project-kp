@@ -6,30 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\produk;
 use App\Models\transaksi;
 use App\Models\customer;
+use App\Models\category;
 use App\Models\detail_pembelian;
 
 class produkController extends Controller
 {
     public function index(){
-        $this->authorize('view_produk', produk::class);
+         $this->authorize('view_produk', produk::class);
 
         $produk = produk::all();
+        // dd($produk);
         return view("produk.index", compact('produk'));
     }
 
-    public function variant(){
+    public function produk(){
         $produk = produk::all();
-        return view("variant", compact('produk'));
+        return view("produks", compact('produk'));
     }
 
     public function create(){
-        $this->authorize('create_produk', produk::class);
+         $this->authorize('create_produk', produk::class);
 
-        return view("produk.create");
+         $data = category::all();
+        return view("produk.create")->with('categories', $data);;
     }
 
     public function store(Request $request){
-        $this->authorize('create_produk', produk::class);
+         $this->authorize('create_produk', produk::class);
 
         $validation = $request->validate([
             'nama' => 'required|min:5|max:50',
@@ -42,15 +45,16 @@ class produkController extends Controller
 
         $produk = new produk();
         $produk->nama = $request->nama;
-        $produk->idProduk = $request->kode;
-        $produk->detailProduk = $request->deskripsi;
+        $produk->product_id = $request->product_id;
+        $produk->product_detail = $request->product_detail;
         $produk->foto = $nama_file;
         $produk->harga = $request->harga;
         $produk->stok = $request->stok;
+        $produk->category_id = $request->category_id;
         $produk->save();
 
         $request->session()->flash("info", "Data produk $request->nama berhasil disimpan!");
-        return redirect()->route("produk.create");
+        return redirect()->route("produk.index");
     }
 
     public function show(Request $request, $id){
@@ -61,13 +65,17 @@ class produkController extends Controller
     public function edit(Request $request, $id){
         $this->authorize('update_produk', produk::class);
 
+        $categories = category::all();
         $produk = produk::find($id);
-        return view("produk.edit", compact('produk'));
+
+        // dd($produk);
+        return view('produk.edit', compact('produk', 'categories'));
     }
 
     public function update(Request $request, $id){
         $this->authorize('update_produk', produk::class);
-
+        // dd($request->all());
+       
         if ($request->hasFile('foto')) { 
             $validation = $request->validate([
                 'nama' => 'required|min:5|max:20',
@@ -77,14 +85,16 @@ class produkController extends Controller
             $validation = $request->validate([
             'nama' => 'required|min:5|max:20'
             ]);
-        }
-       
+        } 
+
         $produk = produk::find($id);
+        // dd($produk);
+        $produk->product_id = $request->product_id;
         $produk->nama = $request->nama;
-        $produk->idProduk = $request->kode;
-        $produk->detailProduk= $request->deskripsi;
+        $produk->product_detail = $request->product_detail;
         $produk->harga = $request->harga;
         $produk->stok = $request->stok;
+        // $produk->category_id = intval($request->category_id);
         
         if($request->foto){
             $ext = $request->foto->getClientOriginalExtension();  
@@ -98,18 +108,23 @@ class produkController extends Controller
         return redirect()->route("produk.edit", [$id]);
     }
 
-    public function destroy(Request $request, $idProduk){
+    public function destroy(Request $request, $id){
         $this->authorize('delete_produk', produk::class);
-
-        $produk = produk::find($idProduk);
-        if($produk->idProduk){
+        $produk = produk::find($id);
+        if($produk){
             $produk->delete();
         }
-
         $request->session()->flash("info", "Data produk $request->nama berhasil dihapus!");
         return redirect()->route("produk.index");
     }
 
+    public function indexByCategory(Category $category)
+    {
+        $produk = $category->produk;
+
+        return view('produk.index', compact('produk'));
+    }
+    
     public function cart()
     {
         $transaksi = null;
@@ -186,8 +201,8 @@ class produkController extends Controller
             $detailpembelian = new detail_pembelian();
             $produk = produk::where('nama', $details['name'])->first();
             $produk->decrement('stok', $details['quantity']);
-            $kodeProduk = $produk->idProduk;
-            $detail_pembelian->idProduk = $kodeProduk;
+            $kodeProduk = $produk->product_id;
+            $detail_pembelian->product_id = $product_id;
             $detail_pembelian->kdTransaksi = $id2;
             $detail_pembelian->jumlahPembelian = $details['quantity'];
             $detail_pembelian->save();

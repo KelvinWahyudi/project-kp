@@ -9,6 +9,9 @@ class produk extends Model
 {
     use HasFactory;
     protected $table = "produk";
-    protected $primarykey = "idProduk";
-    public $incrementing = false;
+
+    public function category()
+    {
+        return $this->belongsTo(category::class);
+    }
 }

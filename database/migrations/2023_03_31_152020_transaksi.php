@@ -17,7 +17,7 @@ class Transaksi extends Migration
             $table->id();
             $table->unsignedBigInteger("idCustomer")->nullable();
             $table->foreign("idCustomer")->references("id")->on("customer");
-            $table->date("tanggal")->nullable();
+            $table->date("order_date")->nullable();
             $table->timestamps();
         });
     }

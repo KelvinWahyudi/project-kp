@@ -21,7 +21,7 @@
        <p>Dapatkan perlindungan maksimal dengan produk
           keselamatan kapal terbaik 
           di pasaran saat ini.</p>
-          <a href="/produk" class="cta">Pesan Sekarang</a>
+          <a href="/product" class="cta">Pesan Sekarang</a>
        </main>
      </section>
   {{-- about section --}}
@@ -92,7 +92,16 @@
             <h3 class="menu-card-title">- Pelampung -</h3>
             <p class="menu-card-price">IDR 200k</p>
           </div>
-        
+          {{-- @foreach($produk as $item)
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="menu-card">
+              <img src="{{asset('storage/'. $item->foto)}}" alt="Pelampung" class="menu-card-img">
+              <h3 class="menu-card-title">- {{ $item->nama }} -</h3>
+              <p class="menu-card-price">Rp. {{ $item->harga }}</p>
+            </div>
+            
+            @endforeach
+       </section> --}}
      </section>
 
 

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">
            
-            <img src="img/logo.png" class="d-inline-block align-text-top width="142" height="48">
+            <img src="{{asset("img/logo.png")}}" class="d-inline-block align-text-top width="142" height="48">
 
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,16 +14,16 @@
                     <a class="nav-link" href="/"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/produk"><b>Produk</b></a>
+                    <a class="nav-link" href="/produks"><b>Produk</b></a>
                 </li>
                 @can('view_produk', \App\Models\produk::class)
                 <li class="nav-item">
-                    <a class="nav-link" href="/produk">produk</a>
+                    <a class="nav-link" href="/produk">Tambah produk</a>
                 </li>
                 @endcan
                 @can('view_customer', \App\Models\customer::class)
                 <li class="nav-item">
-                    <a class="nav-link" href=" /customer">Customer</a>
+                    <a class="nav-link" href="/customer">Customer</a>
                 </li>
                 @endcan
                 </li>

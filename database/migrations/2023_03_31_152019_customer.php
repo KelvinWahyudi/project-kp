@@ -15,9 +15,9 @@ class Customer extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
-            $table->string("nama")->nullable();
-            $table->string("nomorTelepon")->nullable();
-            $table->text("alamatLengkap")->nullable();
+            $table->string("name")->nullable();
+            $table->string("phone_number")->nullable();
+            $table->text("address")->nullable();
             $table->timestamps();
         });
     }

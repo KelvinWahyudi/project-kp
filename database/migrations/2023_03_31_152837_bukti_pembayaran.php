@@ -13,7 +13,7 @@ class BuktiPembayaran extends Migration
      */
     public function up()
     {
-        Schema::create('pembayaran', function (Blueprint $table) {
+        Schema::create('payment', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
